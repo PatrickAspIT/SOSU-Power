@@ -9,12 +9,29 @@ Subsystem 02: Medarbejderhåndtering
 **Aktører:**
 * **SOSU-medarbejdere**: Løser opgaver hos beboerne.
 ---
-01. SOSU-medarbejderen skal have en opgaveoversigt.
-02. SOSU-medarbejderen skal kunne se de beboere, som de er blevet uddelegeret.
-03. SOSU-medarbejderen skal kunne se deres opgaver for hver beboer.
-04. SOSU-medarbejderen skal kunne registrere udførelse af deres opgaver.
-05. SOSU-medarbejderen skal kunne nedskrive notater til opgaven.
-06. SOSU-medarbejderen skal kunne se information om borgeren som opgaven er ved.
+01. SOSU-medarbejderen skal kunne se sin opgaveoversigt for dagens dato.
+0. Opgaveoversigten skal sorteres i kronologisk rækkefølge.
+0. I opgaveoversigten skal opgaverne have følgende information:
+    * Nummer
+    * Tid
+    * Lokation
+    * Navn
+    * Fuldført
+0. SOSU-medarbejderen skal kunne vælge en opgave fra opgaveoversigten.
+0. SOSU-medarbejderen skal kunne se følgende data om beboeren, når en opgave fra opgaveroversigten er valgt:   
+   * Navn
+   * Adresse
+   * Sygdom
+   * Medicin
+   * Skavanker
+   * Yderlige noter
+0. SOSU-medarbejderen skal kunne se hvilke delopgaver der er, når en opgave fra opgaveroversigten er valgt.
+0. SOSU-medarbejderen skal kunne markere delopgaver som fuldført.
+0. SOSU-medarbejderen skal kunne tilføje noter til opgaven.
+0. SOSU-medarbejderen skal kunne markere hvilket medicin er givet.
+0. SOSU-medarbejderen skal kunne tilføje noter omkring medicin til opgaven.
+0. SOSU-medarbejderen skal kunne afslutte en valgt opgave.
+0. SOSU-medarbejderen skal retuneres til opgaveoversigten efter at have markeret en opgave som afsluttet.
 
 ## Subsystem 02: Medarbejderhåndtering
 **Aktører:**
