@@ -9,16 +9,16 @@ Plejecentrene ønsker et system, der understøtter følgende:
 ## OPGAVEAFVIKLING
 Denne del af systemet skal understøtte SOSU-medarbejdernes daglige arbejdsgang med at løse opgaver hos beboerne på plejecentret. 
 
-Når medarbejderne åbner systemet, skal de kunne se en liste over alle beboere (med info) tilhørende medarbejderns plejehjem og de opgaver, der skal løses for dem i løbet af dagen. 
+Når SOSU-medarbejderen åbner systemet, skal de kunne se en opgaveliste over alle opgaver tilhørende plejecenteret, der skal løses for dem i løbet af dagen. 
 
-Dette inkluderer oplysninger om tidspunkter for planlagte opgaver samt noter om opgaveløsningen.
+Dette inkluderer nummer, tidspunkter, adresse, navn og fuldførelse for planlagte opgaver.
 
 ## MEDARBEJDERHÅNDTERING
-Denne del af systemet skal tillade at en administrator kan oprette nye borgere samt. medarbejdere og tildele dem til et plejecenter.
+Denne del af systemet skal tillade at en administrator kan oprette nye beboer samt. SOSU-medarbejdere og tildele dem til et plejecenter.
 
-Administratoren kan slette medarbejdere og borgere.
+Administratoren kan slette SOSU-medarbejdere og beboer.
 
-Administratorer skal også kunne oprette og tildele nye opgaver til medarbejderen.
+Administratorer skal også kunne oprette og tildele nye opgaver til SOSU-medarbejderen.
 
 ## BEBOERINFORMATION
-Denne del af systemet skal gøre det muligt at gemme informationer som navn, beboelsessted, medicin, skavanker og yderlige noter.
+Denne del af systemet skal gøre det muligt at gemme informationer om beboer som navn, adresse, sygdom, medicin, skavanker og yderlige noter.

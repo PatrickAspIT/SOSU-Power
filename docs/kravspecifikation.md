@@ -14,7 +14,7 @@ Subsystem 02: Medarbejderhåndtering
 0. I opgaveoversigten skal opgaverne have følgende information:
     * Nummer
     * Tid
-    * Lokation
+    * Adresse
     * Navn
     * Fuldført
 0. SOSU-medarbejderen skal kunne vælge en opgave fra opgaveoversigten.
@@ -39,12 +39,26 @@ Subsystem 02: Medarbejderhåndtering
 * **Administrator**: Håndtere SOSU-medarbejdere og beboere med info.
 ---
 01. Administrator skal kunne tilføje SOSU-medarbejdere.
-02. Administrator skal kunne fjerne SOSU-medarbejdere.
-03. Administrator skal kunne tilføje beboere med info.
-04. Administrator skal kunne fjerne beboere.
-05. Taskplanneren skal kunne oprette og tildele opgaver til SOSU-medarbejderene.
+0. Administrator skal kunne fjerne SOSU-medarbejdere.
+0. Administrator skal kunne tilføje beboere med info:
+    * Navn
+    * Adresse
+    * Sygdom
+    * Medicin
+    * Skavanker
+    * Yderlige noter
+0. Administrator skal kunne fjerne beboere.
+0. Taskplanneren skal kunne oprette og tildele opgaver til SOSU-medarbejderene:
+    * Delopgaver
+    * Medicin oplysninger
+    * Noter til overordnet opgave
+    * Noter til medicin
 
 # IKKE_FUNKTIONELLE KRAV
 Systemet skal overholde følgende ikke-funktionelle krav:
 
-01. 
+01. Databasen skal hostes på en Microsoft SQL Express Server 2019 på din lokale maskine.
+02. Backend skal udvikles i C# med Visual Studio 2022.
+03. Backend skal være en ASP.NET Core application med .NET 8 som runtime.
+04. Backend skal hostes på en IIS Express på din lokale maskine til udvikling.
+05. Backend skal til produktion kunne deployes på en Windows Server 2019 maskine på en IIS med .NET 8 som runtime.
