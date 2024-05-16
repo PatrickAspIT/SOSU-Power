@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SOSU_Power_9000.Entities
+﻿namespace SOSU_Power_9000.Entities
 {
     public class Resident
     {
@@ -46,22 +40,41 @@ namespace SOSU_Power_9000.Entities
         public string Name
         {
             get => name;
-            set => name = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNullOrWhiteSpace(value);
+                if (name != value)
+                {
+                    name = value;
+                }
+            }
         }
 
         public string RoomNumber
         {
             get => roomNumber;
-            set => roomNumber = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNullOrWhiteSpace(value);
+                if (roomNumber != value)
+                {
+                    roomNumber = value;
+                }
+            }
         }
 
         public string Notes
         {
             get => notes;
-            set => notes = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNullOrWhiteSpace(value);
+                if (notes != value)
+                {
+                    notes = value;
+                }
+            }
         }
         #endregion
-
-
     }
 }
