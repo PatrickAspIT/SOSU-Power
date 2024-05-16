@@ -11,14 +11,14 @@
         #endregion
 
         #region Constructors
-        //public Employee(int id, List<Task> tasks, List<Role> roles, string name, CareCenter careCenter)
-        //{
-        //    this.employeeId = id;
-        //    this.tasks = tasks;
-        //    this.roles = roles;
-        //    this.name = name;
-        //    this.careCenter = careCenter;
-        //}
+        public Employee(int id, List<Task> tasks, List<Role> roles, string name, CareCenter careCenter)
+        {
+            this.employeeId = id;
+            this.tasks = tasks;
+            this.roles = roles;
+            this.name = name;
+            this.careCenter = careCenter;
+        }
         #endregion
 
         #region Properties

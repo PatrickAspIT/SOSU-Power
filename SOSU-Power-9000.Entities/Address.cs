@@ -11,14 +11,14 @@
         #endregion
 
         #region Constructors
-        //public Address(int id, string street, string city, string state, int zip)
-        //{
-        //    this.addressId = id;
-        //    this.street = street;
-        //    this.city = city;
-        //    this.state = state;
-        //    this.zip = zip;
-        //}
+        public Address(int id, string street, string city, string state, int zip)
+        {
+            this.addressId = id;
+            this.street = street;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+        }
         #endregion
 
         #region Properties
