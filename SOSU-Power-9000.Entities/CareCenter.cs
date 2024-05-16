@@ -10,13 +10,13 @@
         #endregion
 
         #region Constructors
-        public CareCenter(int id, string name, Address address, List<Resident> residents)
-        {
-            this.careCenterId = id;
-            this.name = name;
-            this.address = address;
-            this.residents = residents;
-        }
+        //public CareCenter(int id, string name, Address address, List<Resident> residents)
+        //{
+        //    this.careCenterId = id;
+        //    this.name = name;
+        //    this.address = address;
+        //    this.residents = residents;
+        //}
         #endregion
 
         #region Properties

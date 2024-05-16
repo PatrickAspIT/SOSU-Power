@@ -13,16 +13,16 @@
         #endregion
 
         #region Constructors
-        public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines)
-        {
-            this.taskId = id;
-            this.name = name;
-            this.timeStart = timeStart;
-            this.timeEnd = timeEnd;
-            this.resident = resident;
-            this.employees = employees;
-            this.medicines = medicines;
-        }
+        //public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines)
+        //{
+        //    this.taskId = id;
+        //    this.name = name;
+        //    this.timeStart = timeStart;
+        //    this.timeEnd = timeEnd;
+        //    this.resident = resident;
+        //    this.employees = employees;
+        //    this.medicines = medicines;
+        //}
         #endregion
 
         #region Properties

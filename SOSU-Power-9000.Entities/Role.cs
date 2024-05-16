@@ -8,11 +8,11 @@
         #endregion
 
         #region Constructors
-        public Role(int id, string roleName)
-        {
-            this.roleId = id;
-            this.roleName = roleName;
-        }
+        //public Role(int id, string roleName)
+        //{
+        //    this.roleId = id;
+        //    this.roleName = roleName;
+        //}
         #endregion
 
         #region Properties

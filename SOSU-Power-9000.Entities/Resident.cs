@@ -14,13 +14,13 @@
         #endregion
 
         #region Constructors
-        public Resident(int id, string name, string roomNumber, string notes)
-        {
-            this.residentId = id;
-            this.name = name;
-            this.roomNumber = roomNumber;
-            this.notes = notes;
-        }
+        //public Resident(int id, string name, string roomNumber, string notes)
+        //{
+        //    this.residentId = id;
+        //    this.name = name;
+        //    this.roomNumber = roomNumber;
+        //    this.notes = notes;
+        //}
         #endregion
 
         #region Properties
