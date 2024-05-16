@@ -1,0 +1,6 @@
+@SOSU_Power_9000.Api_HostAddress = http://localhost:5283
+
+GET {{SOSU_Power_9000.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
