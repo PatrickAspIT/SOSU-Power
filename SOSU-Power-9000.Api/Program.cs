@@ -23,6 +23,8 @@ builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Task>, Repositor
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
 // Adds Resident
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Resident>, Repository<SOSU_Power_9000.Entities.Resident>>();
+// Adds Medicine
+builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Medicine>, Repository<SOSU_Power_9000.Entities.Medicine>>();
 
 var app = builder.Build();
 
