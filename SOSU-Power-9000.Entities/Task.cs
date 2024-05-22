@@ -2,7 +2,9 @@
 {
     public class Task
     {
-        #region Fields
+        #region Fields and constants
+        public readonly DateTime EarliestDateTime = new DateTime(2000, 1, 1);
+
         private int taskId;
         private string name;
         private DateTime timeStart;
@@ -60,7 +62,8 @@
         {
             get => timeStart;
             set
-            {
+            { 
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, EarliestDateTime);
                 if (timeStart != value)
                 {
                     timeStart = value;
