@@ -13,11 +13,11 @@
         #region Constructors
         public Medicine(int id, string name, string unit, int amount, bool administered)
         {
-            this.medicineId = id;
-            this.name = name;
-            this.unit = unit;
-            this.amount = amount;
-            this.administered = administered;
+            MedicineId = id;
+            Name = name;
+            Unit = unit;
+            Amount = amount;
+            Administered = administered;
         }
         #endregion
 

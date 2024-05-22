@@ -10,8 +10,8 @@
         #region Constructors
         public Role(int id, string roleName)
         {
-            this.roleId = id;
-            this.roleName = roleName;
+            RoleId = id;
+            RoleName = roleName;
         }
         #endregion
 

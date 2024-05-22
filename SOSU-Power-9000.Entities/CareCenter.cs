@@ -12,10 +12,10 @@
         #region Constructors
         public CareCenter(int id, string name, Address address, List<Resident> residents)
         {
-            this.careCenterId = id;
-            this.name = name;
-            this.address = address;
-            this.residents = residents;
+            CareCenterId = id;
+            Name = name;
+            Address = address;
+            Residents = residents;
         }
         #endregion
 

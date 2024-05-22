@@ -13,11 +13,11 @@
         #region Constructors
         public Address(int id, string street, string city, string state, int zip)
         {
-            this.addressId = id;
-            this.street = street;
-            this.city = city;
-            this.state = state;
-            this.zip = zip;
+            AddressId = id;
+            Street = street;
+            City = city;
+            State = state;
+            Zip = zip;
         }
         #endregion
 

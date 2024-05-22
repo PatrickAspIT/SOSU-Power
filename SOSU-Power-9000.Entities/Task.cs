@@ -10,18 +10,22 @@
         private Resident resident;
         private List<Employee> employees;
         private List<Medicine> medicines;
+        private bool isCompleted;
+        private string note;
         #endregion
 
         #region Constructors
-        public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines)
+        public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines, bool isCompleted, string note)
         {
-            this.taskId = id;
-            this.name = name;
-            this.timeStart = timeStart;
-            this.timeEnd = timeEnd;
-            this.resident = resident;
-            this.employees = employees;
-            this.medicines = medicines;
+            TaskId = id;
+            Name = name;
+            TimeStart = timeStart;
+            TimeEnd = timeEnd;
+            Resident = resident;
+            Employees = employees;
+            Medicines = medicines;
+            IsCompleted = isCompleted;
+            Note = note;
         }
         #endregion
 
@@ -111,6 +115,30 @@
                 if (medicines != value)
                 {
                     medicines = value;
+                }
+            }
+        }
+
+        public bool IsCompleted
+        {
+            get => isCompleted;
+            set
+            {
+                if (isCompleted != value)
+                {
+                    isCompleted = value;
+                }
+            }
+        }
+
+        public string Note
+        {
+            get => note;
+            set
+            {
+                if (note != value)
+                {
+                    note = value;
                 }
             }
         }
