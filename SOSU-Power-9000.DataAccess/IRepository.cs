@@ -16,7 +16,7 @@ namespace SOSU_Power_9000.DataAccess
         T GetBy(int id);
     }
 
-    public interface ITaskInterface : IRepository<Task>
+    public interface ITaskRepository : IRepository<Task>
     {
         IEnumerable<Task> GetTasksForDate(DateTime date);
         IEnumerable<Task> GetTasksForEmployee(int employeeId);

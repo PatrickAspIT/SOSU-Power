@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SOSU_Power_9000.DataAccess
 {
-    public class TaskInterface(DataContext dataContext) : Repository<Task>(dataContext), ITaskInterface
+    public class TaskRepository(DataContext dataContext) : Repository<Task>(dataContext), ITaskRepository
     {
         public IEnumerable<Task> GetTasksForDate(DateTime date)
         {
