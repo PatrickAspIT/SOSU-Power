@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Task>, Repository<SOSU_Power_9000.Entities.Task>>();
+builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
 
 var app = builder.Build();
 

@@ -5,31 +5,31 @@ namespace SOSU_Power_9000.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TaskController : Controller
+    public class RoleController : Controller
     {
-        private readonly IRepository<Entities.Task> repository;
+        private readonly IRepository<Entities.Role> repository;
 
-        public TaskController(IRepository<Entities.Task> repository)
+        public RoleController(IRepository<Entities.Role> repository)
         {
             this.repository = repository;
         }
 
         [HttpGet(nameof(GetBy))]
-        public ActionResult<Entities.Task> GetBy(int id)
+        public ActionResult<Entities.Role> GetBy(int id)
         {
             return repository.GetBy(id);
         }
 
-        [HttpGet(nameof(GetTasksFor))]
-        public ActionResult<Entities.Task> GetTasksFor(DateTime date = default)
+        [HttpGet(nameof(GetRolesFor))]
+        public ActionResult<Entities.Role> GetRolesFor(string name)
         {
             return default; // TODO: Implement
         }
 
         [HttpPost]
-        public void AddNew(Entities.Task task)
+        public void AddNew(Entities.Role role)
         {
-            repository.Add(task);
+            repository.Add(role);
         }
     }
 }
