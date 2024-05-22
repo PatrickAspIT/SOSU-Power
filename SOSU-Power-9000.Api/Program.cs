@@ -29,6 +29,8 @@ builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Medicine>, Repos
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Employee>, Repository<SOSU_Power_9000.Entities.Employee>>();
 // Adds CareCenter
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.CareCenter>, Repository<SOSU_Power_9000.Entities.CareCenter>>();
+// Adds Address
+builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Address>, Repository<SOSU_Power_9000.Entities.Address>>();
 
 var app = builder.Build();
 
