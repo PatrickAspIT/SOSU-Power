@@ -32,17 +32,19 @@ namespace SOSU_Power_9000.DataAccess
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            dataContext.Update(entity);
+            dataContext.SaveChanges();
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            dataContext.Remove(entity);
+            dataContext.SaveChanges();
         }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return dataContext.Set<T>().ToList();
         }
 
         public T GetBy(int id)
