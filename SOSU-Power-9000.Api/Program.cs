@@ -15,8 +15,14 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Register repositories :
+
+// Adds Task
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Task>, Repository<SOSU_Power_9000.Entities.Task>>();
+// Adds Role
 builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
+// Adds Resident
+builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Resident>, Repository<SOSU_Power_9000.Entities.Resident>>();
 
 var app = builder.Build();
 
