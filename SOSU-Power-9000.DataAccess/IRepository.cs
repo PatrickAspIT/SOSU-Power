@@ -15,7 +15,7 @@ namespace SOSU_Power_9000.DataAccess
         T GetBy(int id);
     }
 
-    public class Repository<T> : IRepository<T>
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DataContext dataContext;
 
@@ -26,7 +26,8 @@ namespace SOSU_Power_9000.DataAccess
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            dataContext.Add(entity);
+            dataContext.SaveChanges();
         }
 
         public void Update(T entity)
@@ -46,7 +47,7 @@ namespace SOSU_Power_9000.DataAccess
 
         public T GetBy(int id)
         {
-            throw new NotImplementedException();
+            return dataContext.Set<T>().Find(id);
         }
     }
 }
