@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SOSU_Power_9000.Entities;
 
 namespace SOSU_Power_9000.DataAccess
 {
@@ -16,9 +17,14 @@ namespace SOSU_Power_9000.DataAccess
         T GetBy(int id);
     }
 
-    public interface ITaskRepository : IRepository<Task>
+    public interface ITaskRepository : IRepository<Entities.Task>
     {
-        IEnumerable<Task> GetTasksForDate(DateTime date);
-        IEnumerable<Task> GetTasksForEmployee(int employeeId);
+        IEnumerable<Entities.Task> GetTasksOnDate(DateTime date);
+        IEnumerable<Entities.Task> GetTasksForEmployee(Employee employee);
+    }
+
+    public interface IEmployeeRepository : IRepository<Employee>
+    {
+        IEnumerable<Employee> GetEmployeeTasks(Entities.Task task);
     }
 }

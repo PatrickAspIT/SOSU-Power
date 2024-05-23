@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SOSU_Power_9000.DataAccess;
+using SOSU_Power_9000.Entities;
 
 namespace SOSU_Power_9000.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TaskController : Controller
+    public class TaskController(ITaskRepository repository) : Controller
     {
-        private readonly IRepository<Entities.Task> repository;
+        private readonly ITaskRepository repository = repository;
 
-        public TaskController(IRepository<Entities.Task> repository)
+        [HttpGet(nameof(GetAll))]
+        public IEnumerable<Entities.Task> GetAll()
         {
-            this.repository = repository;
+            return repository.GetAll();
         }
 
         [HttpGet(nameof(GetBy))]
@@ -20,16 +22,42 @@ namespace SOSU_Power_9000.Api.Controllers
             return repository.GetBy(id);
         }
 
-        [HttpGet(nameof(GetTasksFor))]
-        public ActionResult<Entities.Task> GetTasksFor(DateTime date = default)
+        [HttpGet(nameof(GetTasksOnDate))]
+        public IEnumerable<Entities.Task> GetTasksOnDate(DateTime date = default)
         {
-            return default; // TODO: Implement
+            if (date == default)
+                date = DateTime.Now;
+            return repository.GetTasksOnDate(date);
+        }
+
+        [HttpGet(nameof(GetTasksForEmployeee))]
+        public IEnumerable<Entities.Task> GetTasksForEmployeee([FromQuery] Employee employee)
+        {
+            return repository.GetTasksForEmployee(employee);
         }
 
         [HttpPost]
         public void AddNew(Entities.Task task)
         {
             repository.Add(task);
+        }
+
+        [HttpPut]
+        public void Update(Entities.Task task)
+        {
+            repository.Update(task);
+        }
+
+        [HttpDelete("DeleteById")]
+        public void Delete(int id)
+        {
+            repository.Delete(id);
+        }
+
+        [HttpDelete]
+        public void Delete(Entities.Task task)
+        {
+            repository.Delete(task);
         }
     }
 }

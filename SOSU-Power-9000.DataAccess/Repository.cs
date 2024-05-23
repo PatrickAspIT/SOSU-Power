@@ -21,16 +21,16 @@ namespace SOSU_Power_9000.DataAccess
             dataContext.SaveChanges();
         }
 
-        public void Update(T entity)
-        {
-            dataContext.Update(entity);
-            dataContext.SaveChanges();
-        }
-
         public void Delete(T entity)
         {
             dataContext.Remove(entity);
             dataContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            T entity = GetBy(id);
+            Delete(entity);
         }
 
         public IEnumerable<T> GetAll()
@@ -41,6 +41,12 @@ namespace SOSU_Power_9000.DataAccess
         public T GetBy(int id)
         {
             return dataContext.Set<T>().Find(id);
+        }
+
+        public void Update(T entity)
+        {
+            dataContext.Update(entity);
+            dataContext.SaveChanges();
         }
     }
 }
