@@ -11,6 +11,11 @@ namespace SOSU_Power_9000.DataAccess
             
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
+
         public DbSet<Address> Address { get; set; }
         public DbSet<CareCenter> CareCenter { get; set; }
         public DbSet<Employee> Employee { get; set; }

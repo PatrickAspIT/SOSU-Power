@@ -11,14 +11,14 @@
         #endregion
 
         #region Constructors
-        public Address(int id, string street, string city, string state, int zip)
-        {
-            AddressId = id;
-            Street = street;
-            City = city;
-            State = state;
-            Zip = zip;
-        }
+        //public Address(int id, string street, string city, string state, int zip)
+        //{
+        //    AddressId = id;
+        //    Street = street;
+        //    City = city;
+        //    State = state;
+        //    Zip = zip;
+        //}
         #endregion
 
         #region Properties

@@ -8,11 +8,11 @@
         #endregion
 
         #region Constructors
-        public Role(int id, string roleName)
-        {
-            RoleId = id;
-            RoleName = roleName;
-        }
+        //public Role(int id, string roleName)
+        //{
+        //    RoleId = id;
+        //    RoleName = roleName;
+        //}
         #endregion
 
         #region Properties

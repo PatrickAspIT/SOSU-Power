@@ -11,14 +11,14 @@
         #endregion
 
         #region Constructors
-        public Medicine(int id, string name, string unit, int amount, bool administered)
-        {
-            MedicineId = id;
-            Name = name;
-            Unit = unit;
-            Amount = amount;
-            Administered = administered;
-        }
+        //public Medicine(int id, string name, string unit, int amount, bool administered)
+        //{
+        //    MedicineId = id;
+        //    Name = name;
+        //    Unit = unit;
+        //    Amount = amount;
+        //    Administered = administered;
+        //}
         #endregion
 
         #region Properties

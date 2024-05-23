@@ -11,14 +11,14 @@
         #endregion
 
         #region Constructors
-        public Employee(int id, List<Task> tasks, List<Role> roles, string name, CareCenter careCenter)
-        {
-            EmployeeId = id;
-            Tasks = tasks;
-            Roles = roles;
-            Name = name;
-            CareCenter = careCenter;
-        }
+        //public Employee(int id, List<Task> tasks, List<Role> roles, string name, CareCenter careCenter)
+        //{
+        //    EmployeeId = id;
+        //    Tasks = tasks;
+        //    Roles = roles;
+        //    Name = name;
+        //    CareCenter = careCenter;
+        //}
         #endregion
 
         #region Properties

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SOSU_Power_9000.DataAccess;
+using SOSU_Power_9000.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,21 +17,19 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 // Register repositories :
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-// Adds Task
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Task>, Repository<SOSU_Power_9000.Entities.Task>>();
-// Adds Role
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
-// Adds Resident
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Resident>, Repository<SOSU_Power_9000.Entities.Resident>>();
-// Adds Medicine
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Medicine>, Repository<SOSU_Power_9000.Entities.Medicine>>();
-// Adds Employee
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Employee>, Repository<SOSU_Power_9000.Entities.Employee>>();
-// Adds CareCenter
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.CareCenter>, Repository<SOSU_Power_9000.Entities.CareCenter>>();
-// Adds Address
-builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Address>, Repository<SOSU_Power_9000.Entities.Address>>();
+//// Adds Role
+//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
+//// Adds Resident
+builder.Services.AddScoped<IRepository<Resident>, Repository<Resident>>();
+//// Adds Employee
+//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Employee>, Repository<SOSU_Power_9000.Entities.Employee>>();
+//// Adds CareCenter
+//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.CareCenter>, Repository<SOSU_Power_9000.Entities.CareCenter>>();
+//// Adds Address
+//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Address>, Repository<SOSU_Power_9000.Entities.Address>>();
 
 var app = builder.Build();
 

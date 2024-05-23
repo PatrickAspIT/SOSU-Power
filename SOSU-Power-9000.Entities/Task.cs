@@ -17,18 +17,18 @@
         #endregion
 
         #region Constructors
-        public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines, bool isCompleted, string note)
-        {
-            TaskId = id;
-            Name = name;
-            TimeStart = timeStart;
-            TimeEnd = timeEnd;
-            Resident = resident;
-            Employees = employees;
-            Medicines = medicines;
-            IsCompleted = isCompleted;
-            Note = note;
-        }
+        //public Task(int id, string name, DateTime timeStart, DateTime timeEnd, Resident resident, List<Employee> employees, List<Medicine> medicines, bool isCompleted, string note)
+        //{
+        //    TaskId = id;
+        //    Name = name;
+        //    TimeStart = timeStart;
+        //    TimeEnd = timeEnd;
+        //    Resident = resident;
+        //    Employees = employees;
+        //    Medicines = medicines;
+        //    IsCompleted = isCompleted;
+        //    Note = note;
+        //}
         #endregion
 
         #region Properties

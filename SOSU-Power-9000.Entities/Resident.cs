@@ -14,13 +14,13 @@
         #endregion
 
         #region Constructors
-        public Resident(int id, string name, string roomNumber, string notes)
-        {
-            ResidentId = id;
-            Name = name;
-            RoomNumber = roomNumber;
-            Notes = notes;
-        }
+        //public Resident(int id, string name, string roomNumber, string notes)
+        //{
+        //    ResidentId = id;
+        //    Name = name;
+        //    RoomNumber = roomNumber;
+        //    Notes = notes;
+        //}
         #endregion
 
         #region Properties
