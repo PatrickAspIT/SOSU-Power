@@ -1,35 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SOSU_Power_9000.DataAccess;
+using SOSU_Power_9000.Entities;
 
 namespace SOSU_Power_9000.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EmployeeController : Controller
+    public class EmployeeController(IEmployeeRepository repository) : Controller
     {
-        private readonly IRepository<Entities.Employee> repository;
+        private readonly IRepository<Employee> repository = repository;
 
-        public EmployeeController(IRepository<Entities.Employee> repository)
-        {
-            this.repository = repository;
-        }
-
-        [HttpGet(nameof(GetBy))]
-        public ActionResult<Entities.Employee> GetBy(int id)
+        [HttpGet(nameof(GetById))]
+        public ActionResult<Employee> GetById(int id)
         {
             return repository.GetBy(id);
         }
 
-        [HttpGet(nameof(GetEmployeesFor))]
-        public ActionResult<Entities.Employee> GetEmployeesFor(string careCenter)
+        [HttpGet(nameof(GetAll))]
+        public IEnumerable<Employee> GetAll()
         {
-            return default; // TODO: Implement
+            return repository.GetAll();
         }
 
         [HttpPost]
-        public void AddNew(Entities.Employee employee)
+        public void AddNew([FromQuery] Employee employee)
         {
             repository.Add(employee);
+        }
+
+        [HttpPut]
+        public void Update([FromQuery] Employee employee)
+        {
+            repository.Update(employee);
+        }
+
+        [HttpDelete(nameof(DeleteById))]
+        public void DeleteById(int id)
+        {
+            repository.Delete(id);
         }
     }
 }

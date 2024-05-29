@@ -38,7 +38,7 @@ namespace SOSU_Power_9000.DataAccess
             return dataContext.Set<T>().ToList();
         }
 
-        public T GetBy(int id)
+        public virtual T GetBy(int id)
         {
             return dataContext.Set<T>().Find(id);
         }

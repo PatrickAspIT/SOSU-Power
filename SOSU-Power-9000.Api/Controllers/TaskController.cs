@@ -6,11 +6,12 @@ namespace SOSU_Power_9000.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TaskController(ITaskRepository repository) : Controller
+    public class TaskController(ITaskRepository repository, IEmployeeRepository employeeRepository) : Controller
     {
         private readonly ITaskRepository repository = repository;
+        private readonly IEmployeeRepository employeeRepository = employeeRepository;
 
-        [HttpGet(nameof(GetAll))]
+        [HttpGet]
         public IEnumerable<Entities.Task> GetAll()
         {
             return repository.GetAll();

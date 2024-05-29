@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSU-Power-9000.Api", "SOSU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSU-Power-9000.Entities", "SOSU-Power-9000.Entities\SOSU-Power-9000.Entities.csproj", "{D845D7F2-8186-4C7C-8AA0-916834878282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSU-Power-9000.DataAccess", "SOSU-Power-9000.DataAccess\SOSU-Power-9000.DataAccess.csproj", "{DEE87323-BC9A-49F9-AC71-4E508A51B8C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSU-Power-9000.DataAccess", "SOSU-Power-9000.DataAccess\SOSU-Power-9000.DataAccess.csproj", "{DEE87323-BC9A-49F9-AC71-4E508A51B8C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSU-Power-9000.CareApp", "SOSU-Power-9000.CareAoo\SOSU-Power-9000.CareApp.csproj", "{088CF87E-4C26-4630-8D5C-C344759A076A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,12 @@ Global
 		{DEE87323-BC9A-49F9-AC71-4E508A51B8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEE87323-BC9A-49F9-AC71-4E508A51B8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE87323-BC9A-49F9-AC71-4E508A51B8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088CF87E-4C26-4630-8D5C-C344759A076A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

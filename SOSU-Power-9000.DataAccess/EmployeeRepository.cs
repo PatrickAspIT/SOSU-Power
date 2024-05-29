@@ -11,7 +11,7 @@ namespace SOSU_Power_9000.DataAccess
     {
         public IEnumerable<Employee> GetEmployeeTasks(Entities.Task task)
         {
-            return dataContext.Employee.Where(a => a.Tasks.Contains(task));
+            return dataContext.Employee.Where(a => a.Tasks.Contains(task)).ToList();
         }
     }
 }

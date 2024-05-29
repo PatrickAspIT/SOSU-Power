@@ -17,19 +17,13 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 // Register repositories :
-builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-//// Adds Role
-//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Role>, Repository<SOSU_Power_9000.Entities.Role>>();
+// Adds Task
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+// Adds Employee
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 //// Adds Resident
 builder.Services.AddScoped<IRepository<Resident>, Repository<Resident>>();
-//// Adds Employee
-//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Employee>, Repository<SOSU_Power_9000.Entities.Employee>>();
-//// Adds CareCenter
-//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.CareCenter>, Repository<SOSU_Power_9000.Entities.CareCenter>>();
-//// Adds Address
-//builder.Services.AddScoped<IRepository<SOSU_Power_9000.Entities.Address>, Repository<SOSU_Power_9000.Entities.Address>>();
 
 var app = builder.Build();
 

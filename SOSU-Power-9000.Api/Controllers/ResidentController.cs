@@ -1,35 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SOSU_Power_9000.DataAccess;
+using SOSU_Power_9000.Entities;
 
 namespace SOSU_Power_9000.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ResidentController : Controller
+    public class ResidentController(IRepository<Resident> repository) : Controller
     {
-        private readonly IRepository<Entities.Resident> repository;
+        private readonly IRepository<Resident> repository = repository;
 
-        public ResidentController(IRepository<Entities.Resident> repository)
-        {
-            this.repository = repository;
-        }
-
-        [HttpGet(nameof(GetBy))]
-        public ActionResult<Entities.Resident> GetBy(int id)
+        [HttpGet(nameof(GetById))]
+        public ActionResult<Resident> GetById(int id)
         {
             return repository.GetBy(id);
         }
 
-        [HttpGet(nameof(GetResidentsFor))]
-        public ActionResult<Entities.Resident> GetResidentsFor(string careCenter)
+        [HttpGet(nameof(GetAll))]
+        public IEnumerable<Resident> GetAll()
         {
-            return default; // TODO: Implement
+            return repository.GetAll();
         }
 
         [HttpPost]
-        public void AddNew(Entities.Resident resident)
+        public void AddNew([FromQuery] Resident resident)
         {
             repository.Add(resident);
+        }
+
+        [HttpPut]
+        public void Update([FromQuery] Resident resident)
+        {
+            repository.Update(resident);
+        }
+
+        [HttpDelete(nameof(DeleteById))]
+        public void DeleteById(int id)
+        {
+            repository.Delete(id);
         }
     }
 }
