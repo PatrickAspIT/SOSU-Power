@@ -17,10 +17,25 @@ namespace SOSU_Power_9000.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("EmployeeTask", b =>
+                {
+                    b.Property<int>("EmployeesEmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TasksTaskId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EmployeesEmployeeId", "TasksTaskId");
+
+                    b.HasIndex("TasksTaskId");
+
+                    b.ToTable("EmployeeTask");
+                });
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.Address", b =>
                 {
@@ -106,10 +121,15 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TaskId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Unit")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MedicineId");
+
+                    b.HasIndex("TaskId");
 
                     b.ToTable("Medicine");
                 });
@@ -122,6 +142,9 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResidentId"));
 
+                    b.Property<int?>("CareCenterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -132,6 +155,8 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResidentId");
+
+                    b.HasIndex("CareCenterId");
 
                     b.ToTable("Resident");
                 });
@@ -144,10 +169,15 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("RoleName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoleId");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Role");
                 });
@@ -160,7 +190,13 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TaskId"));
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ResidentId")
@@ -172,17 +208,26 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     b.Property<DateTime>("TimeStart")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("TaskId");
 
                     b.HasIndex("ResidentId");
 
                     b.ToTable("Task");
+                });
+
+            modelBuilder.Entity("EmployeeTask", b =>
+                {
+                    b.HasOne("SOSU_Power_9000.Entities.Employee", null)
+                        .WithMany()
+                        .HasForeignKey("EmployeesEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SOSU_Power_9000.Entities.Task", null)
+                        .WithMany()
+                        .HasForeignKey("TasksTaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.CareCenter", b =>
@@ -203,6 +248,27 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     b.Navigation("CareCenter");
                 });
 
+            modelBuilder.Entity("SOSU_Power_9000.Entities.Medicine", b =>
+                {
+                    b.HasOne("SOSU_Power_9000.Entities.Task", null)
+                        .WithMany("Medicines")
+                        .HasForeignKey("TaskId");
+                });
+
+            modelBuilder.Entity("SOSU_Power_9000.Entities.Resident", b =>
+                {
+                    b.HasOne("SOSU_Power_9000.Entities.CareCenter", null)
+                        .WithMany("Residents")
+                        .HasForeignKey("CareCenterId");
+                });
+
+            modelBuilder.Entity("SOSU_Power_9000.Entities.Role", b =>
+                {
+                    b.HasOne("SOSU_Power_9000.Entities.Employee", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("EmployeeId");
+                });
+
             modelBuilder.Entity("SOSU_Power_9000.Entities.Task", b =>
                 {
                     b.HasOne("SOSU_Power_9000.Entities.Resident", "Resident")
@@ -220,13 +286,11 @@ namespace SOSU_Power_9000.DataAccess.Migrations
             modelBuilder.Entity("SOSU_Power_9000.Entities.Employee", b =>
                 {
                     b.Navigation("Roles");
-                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.Task", b =>
                 {
                     b.Navigation("Medicines");
-                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

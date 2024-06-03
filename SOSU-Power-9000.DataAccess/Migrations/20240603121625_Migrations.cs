@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SOSU_Power_9000.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Migrations : Migration
     {
         /// <inheritdoc />
+        /// // Every table in the database
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -102,7 +103,7 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TimeStart = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: "01-01-2000"),
                     TimeEnd = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: "01-01-2000"),
-                    ResidentId = table.Column<int>(type: "int", nullable: true),
+                    ResidentId = table.Column<int>(type: "int", nullable: false),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: true, defaultValue: "0"),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "no notes")
                 },
@@ -132,6 +133,7 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     table.PrimaryKey("PK_Medicine", x => x.MedicineId);
                 });
 
+            // Foreign key constraints
             migrationBuilder.CreateIndex(
                 name: "IX_CareCenter_AddressId",
                 table: "CareCenter",
@@ -149,6 +151,7 @@ namespace SOSU_Power_9000.DataAccess.Migrations
         }
 
         /// <inheritdoc />
+        /// // All tables
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
