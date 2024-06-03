@@ -10,7 +10,7 @@
         // Maybe add these later
         //private string List<Diagnosis>;
         //private string List<Prescription>;
-        private string notes;
+        private string note;
         #endregion
 
         #region Constructors
@@ -63,15 +63,15 @@
             }
         }
 
-        public string Notes
+        public string Note
         {
-            get => notes;
+            get => note;
             set
             {
                 ArgumentOutOfRangeException.ThrowIfNullOrWhiteSpace(value);
-                if (notes != value)
+                if (note != value)
                 {
-                    notes = value;
+                    note = value;
                 }
             }
         }
