@@ -6,10 +6,6 @@
         private int residentId;
         private string name;
         private string roomNumber;
-
-        // Maybe add these later
-        //private string List<Diagnosis>;
-        //private string List<Prescription>;
         private string note;
         #endregion
 
