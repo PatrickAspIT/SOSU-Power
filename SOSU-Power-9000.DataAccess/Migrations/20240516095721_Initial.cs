@@ -17,9 +17,9 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     AddressId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Zip = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -33,8 +33,8 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     CareCenterId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AddressId = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,8 +52,8 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     EmployeeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CareCenterId = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CareCenterId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,19 +71,13 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     ResidentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoomNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CareCenterId = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoomNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "no notes")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Resident", x => x.ResidentId);
-                    table.ForeignKey(
-                        name: "FK_Resident_CareCenter_CareCenterId",
-                        column: x => x.CareCenterId,
-                        principalTable: "CareCenter",
-                        principalColumn: "CareCenterId");
                 });
 
             migrationBuilder.CreateTable(
@@ -92,17 +86,11 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: true)
+                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Role", x => x.RoleId);
-                    table.ForeignKey(
-                        name: "FK_Role_Employee_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "Employee",
-                        principalColumn: "EmployeeId");
                 });
 
             migrationBuilder.CreateTable(
@@ -111,10 +99,12 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 {
                     TaskId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ResidentId = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TimeStart = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: "01-01-2000"),
+                    TimeEnd = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: "01-01-2000"),
+                    ResidentId = table.Column<int>(type: "int", nullable: true),
+                    IsCompleted = table.Column<bool>(type: "bit", nullable: true, defaultValue: "0"),
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "no notes")
                 },
                 constraints: table =>
                 {
@@ -127,49 +117,19 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmployeeTask",
-                columns: table => new
-                {
-                    EmployeesEmployeeId = table.Column<int>(type: "int", nullable: false),
-                    TasksTaskId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EmployeeTask", x => new { x.EmployeesEmployeeId, x.TasksTaskId });
-                    table.ForeignKey(
-                        name: "FK_EmployeeTask_Employee_EmployeesEmployeeId",
-                        column: x => x.EmployeesEmployeeId,
-                        principalTable: "Employee",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_EmployeeTask_Task_TasksTaskId",
-                        column: x => x.TasksTaskId,
-                        principalTable: "Task",
-                        principalColumn: "TaskId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Medicine",
                 columns: table => new
                 {
                     MedicineId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    Administered = table.Column<bool>(type: "bit", nullable: false),
-                    TaskId = table.Column<int>(type: "int", nullable: true)
+                    Administered = table.Column<bool>(type: "bit", nullable: true, defaultValue: "0")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Medicine", x => x.MedicineId);
-                    table.ForeignKey(
-                        name: "FK_Medicine_Task_TaskId",
-                        column: x => x.TaskId,
-                        principalTable: "Task",
-                        principalColumn: "TaskId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -183,26 +143,6 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                 column: "CareCenterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmployeeTask_TasksTaskId",
-                table: "EmployeeTask",
-                column: "TasksTaskId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Medicine_TaskId",
-                table: "Medicine",
-                column: "TaskId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Resident_CareCenterId",
-                table: "Resident",
-                column: "CareCenterId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Role_EmployeeId",
-                table: "Role",
-                column: "EmployeeId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Task_ResidentId",
                 table: "Task",
                 column: "ResidentId");
@@ -211,9 +151,6 @@ namespace SOSU_Power_9000.DataAccess.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "EmployeeTask");
-
             migrationBuilder.DropTable(
                 name: "Medicine");
 
