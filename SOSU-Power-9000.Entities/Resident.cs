@@ -19,7 +19,7 @@
         //    ResidentId = id;
         //    Name = name;
         //    RoomNumber = roomNumber;
-        //    Notes = notes;
+        //    Note = note;
         //}
         #endregion
 
