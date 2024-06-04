@@ -15,6 +15,12 @@ namespace SOSU_Power_9000.DataAccess
             return dataContext.Task.Where(a => a.Employees.Contains(employee));
         }
 
+        public IEnumerable<Entities.Task> GetTasksForEmployeeByDate(int employeeId, DateTime date)
+        {
+            Employee employee = dataContext.Employee.Find(employeeId);
+            return dataContext.Task.Where(a => a.TimeStart == date.Date);
+        }
+
         public IEnumerable<Entities.Task> GetTasksOnDate(DateTime date)
         {
             return dataContext.Task.Where(a => a.TimeStart == date.Date);

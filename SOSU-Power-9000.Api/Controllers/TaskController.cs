@@ -23,12 +23,10 @@ namespace SOSU_Power_9000.Api.Controllers
             return repository.GetBy(id);
         }
 
-        [HttpGet(nameof(GetTasksOnDate))]
-        public IEnumerable<Entities.Task> GetTasksOnDate(DateTime date = default)
+        [HttpGet(nameof(GetTasksForEmployeeByDate))]
+        public IEnumerable<Entities.Task> GetTasksForEmployeeByDate(int employeeId, DateTime date = default)
         {
-            if (date == default)
-                date = DateTime.Now;
-            return repository.GetTasksOnDate(date);
+            return repository.GetTasksForEmployeeByDate(employeeId, date);
         }
 
         [HttpGet(nameof(GetTasksForEmployeee))]

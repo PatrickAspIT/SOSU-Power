@@ -21,6 +21,7 @@ namespace SOSU_Power_9000.DataAccess
     {
         IEnumerable<Entities.Task> GetTasksOnDate(DateTime date);
         IEnumerable<Entities.Task> GetTasksForEmployee(Employee employee);
+        IEnumerable<Entities.Task> GetTasksForEmployeeByDate(int employeeId, DateTime date);
     }
 
     public interface IEmployeeRepository : IRepository<Employee>
