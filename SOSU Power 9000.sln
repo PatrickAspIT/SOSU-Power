@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSU-Power-9000.DataAccess"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSU-Power-9000.Services", "SOSU-Power-9000.Services\SOSU-Power-9000.Services.csproj", "{135CE9CB-EFE4-43EC-9E76-CF20148C46E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSU-Power-9000.CareApp", "SOSU-Power-9000.CareApp\SOSU-Power-9000.CareApp.csproj", "{4546DD1F-49C3-42DF-A768-1F4016DEE79D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{135CE9CB-EFE4-43EC-9E76-CF20148C46E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{135CE9CB-EFE4-43EC-9E76-CF20148C46E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{135CE9CB-EFE4-43EC-9E76-CF20148C46E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4546DD1F-49C3-42DF-A768-1F4016DEE79D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
