@@ -7,6 +7,7 @@
         private string name;
         private Address address;
         private List<Resident> residents;
+        private List<Employee> employees;
         #endregion
 
         #region Constructors
@@ -68,6 +69,19 @@
                 if (residents != value)
                 {
                     residents = value;
+                }
+            }
+        }
+
+        public List<Employee> Employees
+        {
+            get => employees;
+            set
+            {
+                ArgumentNullException.ThrowIfNull(value);
+                if (employees != value)
+                {
+                    employees = value;
                 }
             }
         }

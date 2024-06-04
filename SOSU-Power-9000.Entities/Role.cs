@@ -5,6 +5,7 @@
         #region Fields
         private int roleId;
         private string roleName;
+        private List<Employee> employees;
         #endregion
 
         #region Constructors
@@ -38,6 +39,19 @@
                 if (roleName != value)
                 {
                     roleName = value;
+                }
+            }
+        }
+
+        public List<Employee> Employees
+        {
+            get => employees;
+            set
+            {
+                ArgumentNullException.ThrowIfNull(value);
+                if (employees != value)
+                {
+                    employees = value;
                 }
             }
         }

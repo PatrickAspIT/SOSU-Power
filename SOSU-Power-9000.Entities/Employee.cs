@@ -7,7 +7,7 @@
         private List<Task> tasks;
         private List<Role> roles;
         private string name;
-        private CareCenter careCenter;
+        //private CareCenter careCenter;
         #endregion
 
         #region Constructors
@@ -74,18 +74,18 @@
             }
         }
 
-        public CareCenter CareCenter
-        {
-            get => careCenter;
-            set
-            {
-                ArgumentNullException.ThrowIfNull(value);
-                if (careCenter != value)
-                {
-                    careCenter = value;
-                }
-            }
-        }
+        //public CareCenter CareCenter
+        //{
+        //    get => careCenter;
+        //    set
+        //    {
+        //        ArgumentNullException.ThrowIfNull(value);
+        //        if (careCenter != value)
+        //        {
+        //            careCenter = value;
+        //        }
+        //    }
+        //}
         #endregion
     }
 }

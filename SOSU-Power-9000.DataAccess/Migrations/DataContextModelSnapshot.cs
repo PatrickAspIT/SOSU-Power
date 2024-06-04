@@ -22,6 +22,21 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EmployeeRole", b =>
+                {
+                    b.Property<int>("EmployeesEmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RolesRoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EmployeesEmployeeId", "RolesRoleId");
+
+                    b.HasIndex("RolesRoleId");
+
+                    b.ToTable("EmployeeRole");
+                });
+
             modelBuilder.Entity("EmployeeTask", b =>
                 {
                     b.Property<int>("EmployeesEmployeeId")
@@ -169,15 +184,10 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("RoleName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoleId");
-
-                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Role");
                 });
@@ -215,6 +225,21 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                     b.ToTable("Task");
                 });
 
+            modelBuilder.Entity("EmployeeRole", b =>
+                {
+                    b.HasOne("SOSU_Power_9000.Entities.Employee", null)
+                        .WithMany()
+                        .HasForeignKey("EmployeesEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SOSU_Power_9000.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EmployeeTask", b =>
                 {
                     b.HasOne("SOSU_Power_9000.Entities.Employee", null)
@@ -241,11 +266,9 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.Employee", b =>
                 {
-                    b.HasOne("SOSU_Power_9000.Entities.CareCenter", "CareCenter")
-                        .WithMany()
+                    b.HasOne("SOSU_Power_9000.Entities.CareCenter", null)
+                        .WithMany("Employees")
                         .HasForeignKey("CareCenterId");
-
-                    b.Navigation("CareCenter");
                 });
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.Medicine", b =>
@@ -262,13 +285,6 @@ namespace SOSU_Power_9000.DataAccess.Migrations
                         .HasForeignKey("CareCenterId");
                 });
 
-            modelBuilder.Entity("SOSU_Power_9000.Entities.Role", b =>
-                {
-                    b.HasOne("SOSU_Power_9000.Entities.Employee", null)
-                        .WithMany("Roles")
-                        .HasForeignKey("EmployeeId");
-                });
-
             modelBuilder.Entity("SOSU_Power_9000.Entities.Task", b =>
                 {
                     b.HasOne("SOSU_Power_9000.Entities.Resident", "Resident")
@@ -280,12 +296,9 @@ namespace SOSU_Power_9000.DataAccess.Migrations
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.CareCenter", b =>
                 {
-                    b.Navigation("Residents");
-                });
+                    b.Navigation("Employees");
 
-            modelBuilder.Entity("SOSU_Power_9000.Entities.Employee", b =>
-                {
-                    b.Navigation("Roles");
+                    b.Navigation("Residents");
                 });
 
             modelBuilder.Entity("SOSU_Power_9000.Entities.Task", b =>
