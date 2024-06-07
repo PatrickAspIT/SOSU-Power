@@ -5,6 +5,11 @@
              x:Class="SOSU_Power_9000.CareApp.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="BackgroundColor">#78a9a6</Color>
+            <Color x:Key="BoxColor">#b5ece7</Color>
+            <Color x:Key="ButtonColor">#009ffd</Color>
+            <Color x:Key="WhiteColor">#ffffff</Color>
+            <Color x:Key="BlackColor">#000000</Color>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
