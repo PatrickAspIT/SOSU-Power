@@ -15,7 +15,7 @@ namespace SOSU_Power_9000.Services
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT Name FROM YourTableName WHERE Id = @id";
+                string query = "SELECT Name FROM Employee WHERE EmployeeId = @id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -23,8 +23,8 @@ namespace SOSU_Power_9000.Services
 
                     try
                     {
-                        await connection.OpenAsync();
-                        object result = await command.ExecuteScalarAsync();
+                        connection.Open(); // Synchronous open
+                        object result = command.ExecuteScalar(); // Synchronous execute
 
                         if (result != null)
                         {
@@ -37,6 +37,7 @@ namespace SOSU_Power_9000.Services
                     }
                     catch (Exception ex)
                     {
+                        // Handle exceptions
                         return null;
                     }
                 }
