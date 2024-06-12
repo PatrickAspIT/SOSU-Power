@@ -7,12 +7,10 @@
     <!-- Left,Top,Right,Bottom -->
 
     <Grid
-        RowDefinitions="*,*,*">
+        RowDefinitions="*,*,*"
+        BackgroundColor="{StaticResource BackgroundColor}">
 
-        <VerticalStackLayout
-            Grid.RowSpan="3"
-            BackgroundColor="{StaticResource BackgroundColor}"/>
-
+        <!-- Main content -->
         <Frame
             Grid.Row="1"
             Margin="20,0,20,0"
@@ -30,7 +28,8 @@
                     FontSize="20"
                     FontAttributes="Bold"
                     TextColor="{StaticResource BlackColor}"/>
-
+                
+                <!-- User input -->
                 <Frame
                     Grid.Row="1"
                     VerticalOptions="Center"
@@ -43,7 +42,7 @@
                         Completed="UserId_Completed"/>
                 </Frame>
                 
-
+                <!-- Button to login -->
                 <Button
                     Grid.Row="2"
                     Text="Log ind" 

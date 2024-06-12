@@ -12,7 +12,7 @@
         BackgroundColor="{StaticResource BackgroundColor}"
         Padding="0,5,0,0">
 
-        <!-- Main Content -->
+        <!-- Main content -->
         <Grid
             Grid.ColumnSpan="2"
             Grid.Row="2"
