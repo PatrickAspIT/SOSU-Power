@@ -39,7 +39,8 @@
                     <Entry
                         x:Name="UserId"
                         VerticalOptions="Center"
-                        Placeholder="Indtast bruger ID..."/>
+                        Placeholder="Indtast bruger ID..."
+                        Completed="UserId_Completed"/>
                 </Frame>
                 
 

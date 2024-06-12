@@ -11,20 +11,25 @@ namespace SOSU_Power_9000.CareApp
 
         private async void LoginBtn_Clicked(object sender, EventArgs e)
         {
-            string userId = UserId.Text;
+            string name = UserId.Text;
 
-            if (string.IsNullOrEmpty(userId))
+            if (string.IsNullOrEmpty(name))
             {
                 await DisplayAlert("Error", "Please enter a user id", "OK");
                 return;
             }
 
-            CareAppMethods careAppMethods = new CareAppMethods();
-            string name = await careAppMethods.GetNameByIdAsync(userId);
+            //CareAppMethods careAppMethods = new CareAppMethods();
+            //string name = await careAppMethods.GetNameByIdAsync(userId);
 
-            UserId.Text = name;
+            //UserId.Text = name;
 
-            //await Navigation.PushAsync(new UserPage(name));
+            await Navigation.PushAsync(new UserPage(name));
+        }
+
+        private void UserId_Completed(object sender, EventArgs e)
+        {
+            LoginBtn_Clicked(sender, e);
         }
     }
 }

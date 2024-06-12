@@ -2,9 +2,9 @@ namespace SOSU_Power_9000.CareApp;
 
 public partial class UserPage : ContentPage
 {
-	public UserPage(string userId)
+	public UserPage(string userInput)
 	{
 		InitializeComponent();
-		UserId.Text = userId;
+		UserName.Text = userInput;
 	}
 }
