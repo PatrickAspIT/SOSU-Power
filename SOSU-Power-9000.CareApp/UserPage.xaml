@@ -23,9 +23,8 @@
             In here I have to display the tasks for the particulair user.
             Using a VerticalStackLayout and inside use a BindableLayout.ItemTemplate with DataTemplate inside.
             Here I can have my frames with the tasks.
-            
             I just have to find out, how to get my tasks out of the database (localDb) and display them here.
-            I cant use LocalDb while im running MAUI, so I have to find a different way.
+            I cant use my database (localDb) while im running MAUI, so I have to find a different way.
             -->
 
         </Grid>
