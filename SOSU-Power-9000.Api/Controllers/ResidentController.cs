@@ -10,30 +10,51 @@ namespace SOSU_Power_9000.Api.Controllers
     {
         private readonly IRepository<Resident> repository = repository;
 
+        /// <summary>
+        /// Uses the GET method to get a resident by their ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet(nameof(GetById))]
         public ActionResult<Resident> GetById(int id)
         {
             return repository.GetBy(id);
         }
 
+        /// <summary>
+        /// Uses the GET method to get all residents.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(nameof(GetAll))]
         public IEnumerable<Resident> GetAll()
         {
             return repository.GetAll();
         }
 
+        /// <summary>
+        /// Uses the POST method to add a new resident.
+        /// </summary>
+        /// <param name="resident"></param>
         [HttpPost]
         public void AddNew([FromQuery] Resident resident)
         {
             repository.Add(resident);
         }
 
+        /// <summary>
+        /// Uses the PUT method to update a resident.
+        /// </summary>
+        /// <param name="resident"></param>
         [HttpPut]
         public void Update([FromQuery] Resident resident)
         {
             repository.Update(resident);
         }
 
+        /// <summary>
+        /// Uses the DELETE method to delete a resident by their ID.
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete(nameof(DeleteById))]
         public void DeleteById(int id)
         {
