@@ -22,6 +22,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the medicineId, name, unit, amount and administered fields.
+        /// </summary>
         public int MedicineId
         {
             get => medicineId;

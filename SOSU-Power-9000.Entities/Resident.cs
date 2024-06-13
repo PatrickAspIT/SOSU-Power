@@ -20,6 +20,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the residentId, name, roomNumber and note fields.
+        /// </summary>
         public int ResidentId
         {
             get => residentId;

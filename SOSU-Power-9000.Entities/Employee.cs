@@ -7,7 +7,6 @@
         private List<Task> tasks;
         private List<Role> roles;
         private string name;
-        //private CareCenter careCenter;
         #endregion
 
         #region Constructors
@@ -22,6 +21,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the employeeId, tasks, roles, and name fields.
+        /// </summary>
         public int EmployeeId
         {
             get => employeeId;
@@ -73,19 +75,6 @@
                 }
             }
         }
-
-        //public CareCenter CareCenter
-        //{
-        //    get => careCenter;
-        //    set
-        //    {
-        //        ArgumentNullException.ThrowIfNull(value);
-        //        if (careCenter != value)
-        //        {
-        //            careCenter = value;
-        //        }
-        //    }
-        //}
         #endregion
     }
 }

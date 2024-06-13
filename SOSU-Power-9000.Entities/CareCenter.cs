@@ -21,6 +21,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the careCenterId, name, address, residents, and employees fields.
+        /// </summary>
         public int CareCenterId
         {
             get => careCenterId;

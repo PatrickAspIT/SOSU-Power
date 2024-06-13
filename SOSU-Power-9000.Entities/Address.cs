@@ -22,6 +22,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the addressId, street, city, state, and zip fields.
+        /// </summary>
         public int AddressId
         {
             get => addressId;

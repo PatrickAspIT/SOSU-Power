@@ -32,6 +32,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of the taskId, name, timeStart, timeEnd, resident, employees, medicines, isCompleted and note fields.
+        /// </summary>
         public int TaskId
         {
             get => taskId;

@@ -17,6 +17,9 @@
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Simple incapsulation of roleId, roleName and employees fields.
+        /// </summary>
         public int RoleId
         {
             get => roleId;
