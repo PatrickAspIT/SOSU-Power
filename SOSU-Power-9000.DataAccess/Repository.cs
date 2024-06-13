@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace SOSU_Power_9000.DataAccess
 {
+    /// <summary>
+    /// Inherits from IRepository which is a interface.
+    /// Implements the inherited methods.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DataContext dataContext;

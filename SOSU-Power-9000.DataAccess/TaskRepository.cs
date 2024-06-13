@@ -8,6 +8,11 @@ using SOSU_Power_9000.Entities;
 
 namespace SOSU_Power_9000.DataAccess
 {
+    /// <summary>
+    /// Inherits from ITaskRepository which is a interface.
+    /// Implements the inherited methods.
+    /// </summary>
+    /// <param name="dataContext"></param>
     public class TaskRepository(DataContext dataContext) : Repository<Entities.Task>(dataContext), ITaskRepository
     {
         public IEnumerable<Entities.Task> GetTasksForEmployee(Employee employee)
