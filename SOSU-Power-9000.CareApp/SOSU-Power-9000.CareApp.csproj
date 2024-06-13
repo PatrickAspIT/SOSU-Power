@@ -64,6 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SOSU-Power-9000.DataAccess\SOSU-Power-9000.DataAccess.csproj" />
 	  <ProjectReference Include="..\SOSU-Power-9000.Entities\SOSU-Power-9000.Entities.csproj" />
 	  <ProjectReference Include="..\SOSU-Power-9000.Services\SOSU-Power-9000.Services.csproj" />
 	</ItemGroup>
