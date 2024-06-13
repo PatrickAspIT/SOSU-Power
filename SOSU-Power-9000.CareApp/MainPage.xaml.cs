@@ -9,6 +9,11 @@ namespace SOSU_Power_9000.CareApp
             InitializeComponent();
         }
 
+        /// <summary>
+        /// When the login button is clicked, the user is navigated to the UserPage with the inputted userId.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void LoginBtn_Clicked(object sender, EventArgs e)
         {
             string name = UserId.Text;
@@ -19,14 +24,15 @@ namespace SOSU_Power_9000.CareApp
                 return;
             }
 
-            //CareAppMethods careAppMethods = new CareAppMethods();
-            //string name = await careAppMethods.GetNameByIdAsync(userId);
-
-            //UserId.Text = name;
-
+            // Navigate to the UserPage with the inputted userId.
             await Navigation.PushAsync(new UserPage(name));
         }
 
+        /// <summary>
+        /// When the user presses enter in the userId entry, the login button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserId_Completed(object sender, EventArgs e)
         {
             LoginBtn_Clicked(sender, e);
