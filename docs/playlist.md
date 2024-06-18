@@ -23,7 +23,7 @@
     - .Api
     - .Entities
     - .DataAccess
-    - Database
+    - Database -> SOSUTestData.sql
     - .CareApp
 
 00. Koncepter og fagtermer:

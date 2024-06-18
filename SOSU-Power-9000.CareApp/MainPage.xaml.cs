@@ -1,12 +1,14 @@
-﻿using SOSU_Power_9000.Services;
+﻿using SOSU_Power_9000.CareApp.ViewModels;
+using SOSU_Power_9000.Services;
 
 namespace SOSU_Power_9000.CareApp
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainPageViewModel viewModel)
         {
             InitializeComponent();
+            BindingContext = viewModel;
         }
 
         /// <summary>

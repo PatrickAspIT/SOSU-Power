@@ -13,16 +13,15 @@ namespace SOSU_Power_9000.CareApp.ViewModels
 
         public MainPageViewModel(ISosuService sosuService)
         {
-            Title = "FORSIDEN";
+            Title = "SOSU Power 9000";
             this.sosuService = sosuService;
-            UpdateTasks();
         }
 
-        private async void UpdateTasks()
+        private async void UpdateTasks(int employeeId)
         {
             TodaysTasks.Clear();
 
-            var result = await sosuService.GetTasksForAsync(new DateTime(2024, 05, 24), new Employee() { EmployeeId = 2000 });
+            var result = await sosuService.GetTasksForAsync(new DateTime(2024, 05, 24), new Employee() { EmployeeId = employeeId });
             foreach (var task in result) 
             {
                 TodaysTasks.Add(task);

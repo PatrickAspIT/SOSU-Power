@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:SOSU_Power_9000.Entities;assembly=SOSU-Power-9000.Entities"
+             xmlns:converters="clr-namespace:SOSU_Power_9000.CareApp.Converters"
+             xmlns:viewModel="clr-namespace:SOSU_Power_9000.CareApp.ViewModels"
+             x:DataType="viewModel:MainPageViewModel"
              x:Class="SOSU_Power_9000.CareApp.MainPage"
-             Shell.NavBarIsVisible="False"
-             Title="LoginPage">
+             Title="{Binding Title}">
     <!-- Left,Top,Right,Bottom -->
 
     <Grid
@@ -34,7 +37,7 @@
                     Grid.Row="1"
                     VerticalOptions="Center"
                     Padding="0"
-                    Margin="0,20,0,20">
+                    Margin="0,10,0,10">
                     <Entry
                         x:Name="UserId"
                         VerticalOptions="Center"
