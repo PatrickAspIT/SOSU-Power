@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SOSU_Power_9000.CareApp.ViewModels
 {
-    internal class UserPageViewModelcs
+    internal class UserPageViewModel
     {
     }
 }
